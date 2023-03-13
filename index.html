@@ -5,7 +5,7 @@
   <title>Calendar</title>
   <style>
     :root {
-      font: 2em/2em 'Georgia', serif;
+      font: 1.4em/1.4em 'Georgia', serif;
     }
     body {
       margin: 0;
@@ -23,6 +23,7 @@
       flex-wrap: wrap;
       gap: 0.5rem;
       list-style: none;
+      line-height: 1.8rem;
     }
     ul li {
       position: relative;
@@ -83,24 +84,32 @@
 <li>Nov</li>
 <li>Dec</li>
 </ul>
+<ul id="h"></ul>
+<ul id="u"></ul>
 </div>
 <script>
   ((t) => {
-    var p, n, f = false, d, q = t.querySelectorAll.bind(t);
-    d = [...Array(31).keys()].map(i => `<li>${i+1}</li>`).join('');
-    t.getElementById('d').innerHTML = d;
+    var p, n, f = false, q = t.querySelectorAll.bind(t);
+
+    function r(i,x,s){
+      t.getElementById(i).innerHTML =
+        [...Array(x).keys()].map(j => `<li>${j+s}</li>`).join('');;
+    }
+    r('d', 31, 1); r('h', 24, 0); r('u', 60, 0);
 
     (function u(){
-      n = ((x) => `${x.getDay()+1}-${x.getDate()}-${x.getMonth()+1}`)
-        (new Date());
-      if (n == p) return;
-      Array.from(q('li')).forEach(l => l.className = '');
+      n = ((x) => [x.getDay()+1,x.getDate(),x.getMonth()+1,x.getHours()+1,x.getMinutes()+1])(new Date());
 
-      var c = n.split("-");
-      ['w','d','m'].forEach((n,i) =>
-        q(`#${n} li:nth-child(${c[i]})`)[0].className = 'a');
+      if (!(n.join('/') == p)) {
+        p = n.join('/');
 
-      p = n;
+        Array.from(q('li')).forEach(l => l.className = '');
+
+        ['w','d','m','h','u'].forEach((y,i) =>
+          q(`#${y} li:nth-child(${n[i]})`)[0].className = 'a');
+
+      }
+
       setTimeout(() => {
         if(f) cancelAnimationFrame(f);
         f = requestAnimationFrame(u);
