@@ -5,7 +5,8 @@
   <title>Calendar</title>
   <style>
     :root {
-      font: 1.4em/1.4em 'Georgia', serif;
+      --s: calc(min(2.5vh, 2.5vw) - .05rem);
+      font: var(--s)/var(--s) 'Georgia', serif;
     }
     body {
       margin: 0;
@@ -24,6 +25,8 @@
       gap: 0.5rem;
       list-style: none;
       line-height: 1.8rem;
+      margin: 2rem;
+      padding: 0;
     }
     ul li {
       position: relative;
@@ -107,7 +110,6 @@
 
         ['w','d','m','h','u'].forEach((y,i) =>
           q(`#${y} li:nth-child(${n[i]})`)[0].className = 'a');
-
       }
 
       setTimeout(() => {
