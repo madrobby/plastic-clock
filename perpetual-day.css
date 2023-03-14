@@ -1,0 +1,123 @@
+:root {
+  --s: calc(max(2vh, 2vw) - .06rem);
+  font: var(--s)/var(--s) sans-serif;
+}
+body {
+  margin: 0;
+  background: var(--bg-color);
+  font-family: var(--font);
+}
+#c {
+  font-weight: bold;
+  color: #444;
+  padding: 1em;
+}
+#d {
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  line-height: 1.8rem;
+  margin: 2rem;
+  padding: 0;
+}
+li {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  box-sizing: border-box;
+  text-align: center;
+  text-transform: lowercase;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #eeb, #dda);
+  box-shadow: 0.2rem 0.2rem 0.5rem #cc8,
+            -0.2rem -0.2rem 0.5rem #ffc;
+}
+li.a:after {
+  content: '';
+  position: absolute;
+  top: -0.3rem;
+  left: -0.3rem;
+  right: 0.3rem;
+  bottom: 0.3rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 0.3rem solid #444;
+  transform: translateZ(1px);
+}
+#w, #m {
+ color: #844;
+ font-size: 0.75rem;
+ line-height: 1.95rem;
+}
+#sel {
+  position: fixed;
+  right: 2em;
+  top: 1em;
+}
+#sel select {
+  background: transparent;
+  border: 1px solid var(--ui-color);
+  color: var(--ui-color);
+  padding: 0.3em 1.9em 0.3em 0.8em;
+  appearance: none;
+  outline: none;
+  font-family: 0.8em/1 var(--font);
+  -webkit-backdrop-filter: blur(10px);
+}
+#sel:after {
+  content: '▾';
+  position: absolute;
+  top:0.1em;
+  color: var(--ui-color);
+  right:0.5em;
+  pointer-events: none;
+}
+#sel:hover select {
+  background: var(--ui-color);
+  color: var(--bg-color);
+}
+#sel:hover:after {
+  color: var(--bg-color);
+}
+#noko {
+  position: fixed;
+  right: 2em;
+  bottom: 1em;
+  color: var(--ui-color);
+  font-size: 0.8rem;
+}
+#noko > a {
+  color: inherit;
+}
+body.style-70s {
+  --ui-color: #886;
+  --bg-color: #dda;
+  --font: 'Georgia', serif;
+}
+
+@font-face {
+  font-family: 'Phoenix EGA';
+  src: url('Web437_PhoenixEGA_8x14.woff') format('woff');
+  font-weight: normal;
+}
+body.style-80s {
+
+Web437_PhoenixEGA_8x14.woff
+  --ui-color: #000;
+  --bg-color: #fbaca7;
+  --font: 'Phoenix EGA', monospace;
+  background: url(memphis.jpg) repeat;
+}
+body.style-80s li {
+  border-radius: 5%;
+  background: #fbaca7;
+  box-shadow: 0.3em 0.3em 0 0 #1abcb7;
+}
+body.style-80s li.a:after {
+  border-color: #348df3;
+  border-radius: 5%;
+}

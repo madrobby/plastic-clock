@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Perpetual Day Calendar brought to you by Noko Time Tracking</title>
+  <link rel="stylesheet" href="perpetual-day.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:widgets:csp" content="on">
   <meta name="twitter:card" content="summary_large_image">
@@ -15,74 +16,8 @@
   <meta property="og:title" content="Perpetual Day Calendar by Noko">
   <meta property="og:description" content="Retro perpetual calendar right in your browser.">
   <meta property="og:url" content="https://erpetual.day/">
-  <style>
-    :root {
-      --s: calc(max(2vh, 2vw) - .06rem);
-      font: var(--s)/var(--s) 'Georgia', serif;
-    }
-    body {
-      margin: 0;
-      background: #dda;
-    }
-    #c {
-      font-weight: bold;
-      color: #444;
-      padding: 1em;
-    }
-    #d {
-    }
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      list-style: none;
-      line-height: 1.8rem;
-      margin: 2rem;
-      padding: 0;
-    }
-    ul li {
-      position: relative;
-      width: 2rem;
-      height: 2rem;
-      box-sizing: border-box;
-      text-align: center;
-      text-transform: lowercase;
-      border-radius: 50%;
-      background: linear-gradient(to bottom right, #eeb, #dda);
-      box-shadow: 0.2rem 0.2rem 0.5rem #cc8,
-                -0.2rem -0.2rem 0.5rem #ffc;
-    }
-    li.a:after {
-      content: '';
-      position: absolute;
-      top: -0.3rem;
-      left: -0.3rem;
-      right: 0.3rem;
-      bottom: 0.3rem;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      border: 0.3rem solid #444;
-      transform: translateZ(1px);
-    }
-    #w, #m {
-     color: #844;
-     font-size: 0.75rem;
-     line-height: 1.95rem;
-    }
-    #noko {
-      position: fixed;
-      right: 2em;
-      bottom: 1em;
-      color: #886;
-      font-size: 0.8rem;
-    }
-    #noko > a {
-      color: inherit;
-    }
-  </style>
 </head>
-<body>
+<body class="style-70s">
 <div id="c">
 <ul id="w">
 <li>Sun</li>
@@ -112,12 +47,21 @@
 <ul id="h"></ul>
 <ul id="u"></ul>
 </div>
+<div id="sel">
+  <select id="style" onchange="__style(this)">
+    <option>70s</option>
+    <option>80s</option>
+  </select>
+</div>
 <div id="noko">
   Perpetual Calendar brought to you by <a href="https://nokotime.com/">Noko Time Tracking</a>
 </div>
 <script>
   ((t) => {
     var p, n, f = false, q = t.querySelectorAll.bind(t);
+
+    window.__style = x =>
+      q('body')[0].className = 'style-'+['70s','80s'][x.selectedIndex];
 
     function r(i,x,s){
       t.getElementById(i).innerHTML =
