@@ -1,11 +1,12 @@
 :root {
-  --s: calc(max(2vh, 2vw) - .06rem);
-  font: var(--s)/var(--s) sans-serif;
+  --s: calc(max(2.7vh, 2.7vw) - .06rem);
+  font: var(--s)/1 sans-serif;
 }
 body {
   margin: 0;
   background: var(--bg-color);
   font-family: var(--font);
+  --ui-font: 16px/1 var(--font);
 }
 #c {
   font-weight: bold;
@@ -30,10 +31,13 @@ li {
   box-sizing: border-box;
   text-align: center;
   text-transform: lowercase;
-  border-radius: 50%;
+  border-radius: 25%;
   background: linear-gradient(to bottom right, #eeb, #dda);
   box-shadow: 0.2rem 0.2rem 0.5rem #cc8,
             -0.2rem -0.2rem 0.5rem #ffc;
+}
+li.a {
+  display: block !important;
 }
 li.a:after {
   content: '';
@@ -44,34 +48,47 @@ li.a:after {
   bottom: 0.3rem;
   width: 2rem;
   height: 2rem;
-  border-radius: 50%;
+  border-radius: 25%;
   border: 0.3rem solid #444;
   transform: translateZ(1px);
 }
 #w, #m {
- color: #844;
- font-size: 0.75rem;
- line-height: 1.95rem;
+  color: #000;
+  font-size: 0.75rem;
+  line-height: 1.95rem;
+}
+#t {
+  display: flex;
+}
+#h li, #u li {
+  position: absolute;
+}
+#h li, #u li {
+  display: none;
+}
+#h li.a:after, #u li.a:after {
+  display: none;
 }
 #sel {
   position: fixed;
   right: 2em;
   top: 1em;
+  font: var(--ui-font);
 }
 #sel select {
-  background: transparent;
+  background: var(--bg-color);
   border: 1px solid var(--ui-color);
   color: var(--ui-color);
   padding: 0.3em 1.9em 0.3em 0.8em;
   appearance: none;
   outline: none;
-  font-family: 0.8em/1 var(--font);
-  -webkit-backdrop-filter: blur(10px);
+  font: var(--ui-font);
 }
 #sel:after {
   content: '▾';
   position: absolute;
   top:0.1em;
+  font-size: 1.4em;
   color: var(--ui-color);
   right:0.5em;
   pointer-events: none;
@@ -88,36 +105,188 @@ li.a:after {
   right: 2em;
   bottom: 1em;
   color: var(--ui-color);
-  font-size: 0.8rem;
+  font: var(--ui-font);
 }
 #noko > a {
   color: inherit;
 }
-body.style-70s {
-  --ui-color: #886;
-  --bg-color: #dda;
-  --font: 'Georgia', serif;
+#t {
+  margin: 0 2rem;
+}
+#t > div {
+  position: relative;
+  perspective: 300px;
+  width: 3em;
+  height: 3em;
+  margin-right: 0.25em;
+}
+#t > div > div {
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  font-size: 2em;
+  line-height: 1.2;
+  width: auto;
+  height: auto;
+  box-shadow: none;
+  background:var(--ui-color);
+  color: var(--bg-color);
+  border-radius: 10%;
 }
 
+/*70s*/
+@keyframes flip-p {
+  0% { transform: rotateX(0.001deg); background-color: #5a3d2b; }
+  to { transform: rotateX(-180.01deg); background-color: #1e120b; }
+}
+@keyframes flip-n {
+  0% { transform: rotateX(179.999deg); background-color: #1e120b; }
+  to { transform: rotateX(0.01deg); background-color: #5a3d2b; }
+}
+@keyframes fade-o {
+  0%,99% { opacity: 1; }
+  to { opacity: 0; }
+}
+body.style-70s {
+  --ui-color: #5a3d2b;
+  --bg-color: #f4a127;
+  --font: 'Georgia', serif;
+  --flip-speed: 0.4s;
+}
+body.style-70s li {
+  color: #5a3d2b;
+  background: linear-gradient(to bottom right, #f4a127, #f4a127);
+  box-shadow: 0.2rem 0.2rem 0.5rem #ce8923,
+            -0.2rem -0.2rem 0.5rem #f9b24a;
+}
+body.style-70s li.a:after {
+  border-color: #5a3d2b;
+}
+body.style-70s #t {
+  margin: 0 2rem;
+}
+body.style-70s #t > div .o {
+  z-index: 1;
+  opacity: 1;
+}
+body.style-70s #t > div .o.anim {
+  animation: fade-o 0.05s forwards;
+}
+body.style-70s #t > div .c {
+  clip-path: inset(0 0 49.9% 0);
+}
+body.style-70s #t > div .c2 {
+  clip-path: inset(50% 0 0 0);
+}
+body.style-70s #t > div .n {
+  backface-visibility: hidden;
+  transform: rotateX(181deg);
+  background-color: #1e120b;
+}
+body.style-70s #t > div .n.anim {
+  animation: flip-n var(--flip-speed) forwards;
+}
+body.style-70s #t > div .p {
+  backface-visibility: hidden;
+  transform: rotateX(1deg);
+  background-color: #5a3d2b;
+}
+body.style-70s #t > div .p.anim {
+  animation: flip-p var(--flip-speed) forwards;
+}
+/*80s*/
+@keyframes fade-p {
+  0% { opacity: 0.99; }
+  to { opacity: 0; }
+}
 @font-face {
-  font-family: 'Phoenix EGA';
-  src: url('Web437_PhoenixEGA_8x14.woff') format('woff');
+  font-family: 'Anonymous Pro';
+  src: url('AnonymousPro-Regular.woff2') format('woff2');
   font-weight: normal;
 }
 body.style-80s {
-
-Web437_PhoenixEGA_8x14.woff
   --ui-color: #000;
-  --bg-color: #fbaca7;
-  --font: 'Phoenix EGA', monospace;
-  background: url(memphis.jpg) repeat;
+  --bg-color: #fff;
+  --font: 'Anonymous Pro', monospace;
+  background: url(memphis3.png) repeat;
 }
 body.style-80s li {
-  border-radius: 5%;
-  background: #fbaca7;
-  box-shadow: 0.3em 0.3em 0 0 #1abcb7;
+  border-radius: 50%;
+  background: #ffe106;
+  box-shadow: none;
+}
+body.style-80s #d li.a {
+  color: #ffe106;
+  background: #000;
+}
+body.style-80s #d li {
+  color: #000;
+  line-height: 2;
+}
+body.style-80s #w li {
+  color: #000;
+  background: #04d6f9;
+}
+body.style-80s #w li.a {
+  color: #04d6f9;
+  background: #000;
+}
+body.style-80s #m li {
+  color: #000;
+  background: #f95fa5;
+}
+body.style-80s #m li.a {
+  color: #f95fa5;
+  background: #000;
 }
 body.style-80s li.a:after {
-  border-color: #348df3;
-  border-radius: 5%;
+  border-color: #000;
+  border-radius: 50%;
+  top: -0.4rem;
+  left: -0.4rem;
+  right: 0.4rem;
+  bottom: 0.4rem;
+  width: 2.225rem;
+  height: 2.225rem;
+}
+body.style-80s #t {
+  justify-content: end;
+  transform: translateY(3em) rotate(-14deg);
+}
+body.style-80s #t > div {
+  width: 5em;
+  height: 5em;
+  opacity: 0.99;
+}
+body.style-80s #t > div > div {
+  font: 3.3em/1.5 var(--font), monospace;
+  border-radius: 50%;
+}
+body.style-80s #t > #th > div {
+  background: #ffe106;
+  color: #f95fa5;
+}
+body.style-80s #t > #tm > div {
+  background: #04d6f9;
+  color: #000;
+}
+body.style-80s #t > #ts > div {
+  background: #f95fa5;
+  color: #ffe106;
+}
+body.style-80s #t > div .c, body.style-80s #t > div .c2 {
+  display: none;
+}
+body.style-80s #t > div .o.anim {
+  animation: fade-o 0.05s forwards;
+}
+body.style-80s #t > div .p.anim {
+  animation: fade-p 1s forwards;
+}
+body.style-80s #noko {
+  background: #fff;
+  padding: 0.2em 1em;
 }
