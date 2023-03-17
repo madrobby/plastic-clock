@@ -134,6 +134,7 @@ li.a:after {
   background:var(--ui-color);
   color: var(--bg-color);
   border-radius: 10%;
+  font-variant-numeric: tabular-nums;
 }
 
 /*70s*/
@@ -145,12 +146,23 @@ li.a:after {
   0% { transform: rotateX(179.999deg); background-color: #1e120b; }
   to { transform: rotateX(0.01deg); background-color: #5a3d2b; }
 }
+@font-face {
+  font-family: 'Plastic';
+  src: url('c.woff2') format('woff2');
+  font-weight: normal;
+}
 body.plastic {
   --ui-color: #5a3d2b;
   --bg-color: #f4a127;
-  --font: 'Georgia', serif;
+  --font: 'Plastic', serif;
   --flip-speed: 0.5s;
   --flip-gap: 0.05em;
+}
+body.plastic ul {
+  line-height: 2.1rem;
+}
+body.plastic #w, body.plastic #m {
+  line-height: 2.1rem;
 }
 body.plastic li {
   color: #5a3d2b;
@@ -163,6 +175,9 @@ body.plastic li.a:after {
 }
 body.plastic #t {
   margin: 0 2rem;
+}
+body.plastic #t > div > div {
+  line-height: 1.57em;
 }
 body.plastic #t > div .c {
   clip-path: inset(0 0 50% 0);
@@ -214,6 +229,7 @@ body.memphis li {
   border-radius: 50%;
   background: #ffe106;
   box-shadow: none;
+  text-transform: uppercase;
 }
 body.memphis #d li.a {
   color: #ffe106;

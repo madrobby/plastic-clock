@@ -71,6 +71,12 @@
 
     window.__style = x => {
       q('body')[0].className = x.value;
+      if ('localStorage' in window) localStorage['__style'] = x.value;
+    }
+
+    if ('localStorage' in window && '__style' in localStorage) {
+      q('body')[0].className = localStorage['__style'];
+      q('#style')[0].value = localStorage['__style'];
     }
 
     q("#d")[0].innerHTML =
