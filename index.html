@@ -76,6 +76,7 @@
     window.__style = x => {
       q('body')[0].className = x.value;
       if ('localStorage' in window) localStorage['__style'] = x.value;
+      fit();
     }
 
     if ('localStorage' in window && '__style' in localStorage) {
@@ -85,6 +86,37 @@
 
     q("#d")[0].innerHTML =
       [...Array(31).keys()].map(j => `<li>${j+1}</li>`).join('');
+
+    function debounce(func, timeout = 300){
+      let timer;
+      return (...args) => {
+        clearTimeout(timer);
+       timer = setTimeout(() => { func.apply(this, args); }, timeout);
+      };
+    }
+
+    // why, oh, why doesn't CSS have anything proper to fit things into other things
+    function fit(){
+      const h = innerHeight * 0.9, m = 1.05;
+      var b, sz = 0.9, c = 50;
+
+      document.querySelector(":root").style.setProperty('font-size', sz+'rem');
+
+      while(true) {
+        b = q('#t')[0].getBoundingClientRect().bottom;
+        //console.log(b, h, sz);
+
+        if (b > h) break;
+        sz = sz * m;
+        c = c - 1;
+        if (c == 0) break;
+
+        document.querySelector(":root").style.setProperty('font-size', sz+'rem');
+      }
+      document.querySelector(":root").style.setProperty('font-size', (sz/m)+'rem');
+    }
+    fit();
+    addEventListener("resize", debounce(fit));
 
     r = (x) =>
       Array.from(q(x)).forEach(e => {

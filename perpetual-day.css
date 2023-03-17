@@ -1,6 +1,10 @@
 :root {
-  --s: calc(min(min(3vh, 3.5vw), max(4vh, 3vw)) - .06rem);
-  font: var(--s)/1 sans-serif;
+  font: 1rem/1 sans-serif;
+  font-size: 1rem;
+}
+html, body {
+  height: 100%;
+  overflow: hidden;
 }
 body {
   margin: 0;
@@ -8,13 +12,6 @@ body {
   font-family: var(--font);
   --ui-font: 14px/1 var(--font);
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-}
-#c {
-  font-weight: bold;
-  color: #444;
-  padding: 1em;
-}
-#d {
 }
 ul {
   display: flex;
@@ -51,11 +48,6 @@ li.a:after {
   border: 0.3rem solid #444;
   transform: translateZ(1px);
   z-index: 1;
-}
-#w, #m {
-  color: #000;
-  font-size: 0.75rem;
-  line-height: 1.95rem;
 }
 #t {
   display: flex;
@@ -118,9 +110,9 @@ li.a:after {
 #t > div {
   position: relative;
   perspective: 300px;
-  width: 3em;
-  height: 3em;
-  margin-right: 0.25em;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.25rem;
 }
 #t > div > div {
   position: absolute;
@@ -129,7 +121,7 @@ li.a:after {
   right: 0;
   top: 0;
   bottom: 0;
-  font-size: 2em;
+  font-size: 2rem;
   line-height: 1.2;
   width: auto;
   height: auto;
@@ -159,10 +151,13 @@ body.plastic {
   --bg-color: #f4a127;
   --font: 'Plastic', serif;
   --flip-speed: 0.5s;
-  --flip-gap: 0.05em;
+  --flip-gap: 0.02em;
 }
 body.plastic ul {
   line-height: 2.1rem;
+}
+body.plastic li {
+  font-size: 0.8rem;
 }
 body.plastic #w, body.plastic #m {
   line-height: 2.1rem;
@@ -180,7 +175,7 @@ body.plastic #t {
   margin: 0 2rem;
 }
 body.plastic #t > div > div {
-  line-height: 1.57em;
+  line-height: 1.6em;
 }
 body.plastic #t > div .c {
   clip-path: inset(0 0 50% 0);
@@ -233,14 +228,18 @@ body.memphis li {
   background: #ffe106;
   box-shadow: none;
   text-transform: uppercase;
+  color: #000;
+  line-height: 2.1;
+  font-size: 0.9em;
+}
+body.memphis #d li {
+  font-size: 1.2em;
+  line-height: 1.65;
+  text-indent: 0.1em;
 }
 body.memphis #d li.a {
   color: #ffe106;
   background: #000;
-}
-body.memphis #d li {
-  color: #000;
-  line-height: 2;
 }
 body.memphis #w li {
   color: #000;
@@ -261,16 +260,19 @@ body.memphis #m li.a {
 body.memphis li.a:after {
   border-color: #000;
   border-radius: 50%;
-  top: -0.4rem;
-  left: -0.4rem;
-  right: -0.4rem;
-  bottom: -0.4rem;
+  top: -0.4em;
+  left: -0.4em;
+  right: -0.4em;
+  bottom: -0.4em;
 }
 body.memphis #t {
-  justify-content: end;
   transform: translateY(3em) rotate(-14deg);
+  position: relative;
+  display: table;
+  float: right;
 }
 body.memphis #t > div {
+  display: table-cell;
   width: 5em;
   height: 5em;
   opacity: 0.99;
@@ -278,6 +280,7 @@ body.memphis #t > div {
 body.memphis #t > div > div {
   font: 3.3em/1.5 var(--font), monospace;
   border-radius: 50%;
+  text-indent: 0.1em;
 }
 body.memphis #t > #th > div {
   background: #ffe106;
