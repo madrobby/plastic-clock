@@ -44,13 +44,12 @@ li.a:after {
   position: absolute;
   top: -0.3rem;
   left: -0.3rem;
-  right: 0.3rem;
-  bottom: 0.3rem;
-  width: 2rem;
-  height: 2rem;
+  right: -0.3rem;
+  bottom: -0.3rem;
   border-radius: 25%;
   border: 0.3rem solid #444;
   transform: translateZ(1px);
+  z-index: 1;
 }
 #w, #m {
   color: #000;
@@ -146,60 +145,58 @@ li.a:after {
   0% { transform: rotateX(179.999deg); background-color: #1e120b; }
   to { transform: rotateX(0.01deg); background-color: #5a3d2b; }
 }
-@keyframes fade-o {
-  0%,99% { opacity: 1; }
-  to { opacity: 0; }
-}
-body.style-70s {
+body.plastic {
   --ui-color: #5a3d2b;
   --bg-color: #f4a127;
   --font: 'Georgia', serif;
-  --flip-speed: 0.4s;
+  --flip-speed: 0.5s;
+  --flip-gap: 0.05em;
 }
-body.style-70s li {
+body.plastic li {
   color: #5a3d2b;
   background: linear-gradient(to bottom right, #f4a127, #f4a127);
   box-shadow: 0.2rem 0.2rem 0.5rem #ce8923,
             -0.2rem -0.2rem 0.5rem #f9b24a;
 }
-body.style-70s li.a:after {
+body.plastic li.a:after {
   border-color: #5a3d2b;
 }
-body.style-70s #t {
+body.plastic #t {
   margin: 0 2rem;
 }
-body.style-70s #t > div .o {
-  z-index: 1;
-  opacity: 1;
+body.plastic #t > div .c {
+  clip-path: inset(0 0 50% 0);
+  z-index: 0;
 }
-body.style-70s #t > div .o.anim {
-  animation: fade-o 0.05s forwards;
-}
-body.style-70s #t > div .c {
-  clip-path: inset(0 0 49.9% 0);
-}
-body.style-70s #t > div .c2 {
+body.plastic #t > div .c2 {
+  top: var(--flip-gap);
   clip-path: inset(50% 0 0 0);
+  z-index: 0;
 }
-body.style-70s #t > div .n {
+body.plastic #t > div .n {
+  top: var(--flip-gap);
+  clip-path: inset(50% 0 0 0);
   backface-visibility: hidden;
   transform: rotateX(181deg);
   background-color: #1e120b;
+  z-index: 1;
 }
-body.style-70s #t > div .n.anim {
+body.plastic #t > div .n.anim {
   animation: flip-n var(--flip-speed) forwards;
 }
-body.style-70s #t > div .p {
+body.plastic #t > div .p {
+  clip-path: inset(0 0 50% 0);
   backface-visibility: hidden;
   transform: rotateX(1deg);
   background-color: #5a3d2b;
+  z-index: 1;
 }
-body.style-70s #t > div .p.anim {
+body.plastic #t > div .p.anim {
   animation: flip-p var(--flip-speed) forwards;
 }
 /*80s*/
 @keyframes fade-p {
-  0% { opacity: 0.99; }
+  0% { opacity: 1; }
   to { opacity: 0; }
 }
 @font-face {
@@ -207,86 +204,81 @@ body.style-70s #t > div .p.anim {
   src: url('AnonymousPro-Regular.woff2') format('woff2');
   font-weight: normal;
 }
-body.style-80s {
+body.memphis {
   --ui-color: #000;
   --bg-color: #fff;
   --font: 'Anonymous Pro', monospace;
   background: url(memphis3.png) repeat;
 }
-body.style-80s li {
+body.memphis li {
   border-radius: 50%;
   background: #ffe106;
   box-shadow: none;
 }
-body.style-80s #d li.a {
+body.memphis #d li.a {
   color: #ffe106;
   background: #000;
 }
-body.style-80s #d li {
+body.memphis #d li {
   color: #000;
   line-height: 2;
 }
-body.style-80s #w li {
+body.memphis #w li {
   color: #000;
   background: #04d6f9;
 }
-body.style-80s #w li.a {
+body.memphis #w li.a {
   color: #04d6f9;
   background: #000;
 }
-body.style-80s #m li {
+body.memphis #m li {
   color: #000;
   background: #f95fa5;
 }
-body.style-80s #m li.a {
+body.memphis #m li.a {
   color: #f95fa5;
   background: #000;
 }
-body.style-80s li.a:after {
+body.memphis li.a:after {
   border-color: #000;
   border-radius: 50%;
   top: -0.4rem;
   left: -0.4rem;
-  right: 0.4rem;
-  bottom: 0.4rem;
-  width: 2.225rem;
-  height: 2.225rem;
+  right: -0.4rem;
+  bottom: -0.4rem;
 }
-body.style-80s #t {
+body.memphis #t {
   justify-content: end;
   transform: translateY(3em) rotate(-14deg);
 }
-body.style-80s #t > div {
+body.memphis #t > div {
   width: 5em;
   height: 5em;
   opacity: 0.99;
 }
-body.style-80s #t > div > div {
+body.memphis #t > div > div {
   font: 3.3em/1.5 var(--font), monospace;
   border-radius: 50%;
 }
-body.style-80s #t > #th > div {
+body.memphis #t > #th > div {
   background: #ffe106;
   color: #f95fa5;
 }
-body.style-80s #t > #tm > div {
+body.memphis #t > #tm > div {
   background: #04d6f9;
   color: #000;
 }
-body.style-80s #t > #ts > div {
+body.memphis #t > #ts > div {
   background: #f95fa5;
   color: #ffe106;
 }
-body.style-80s #t > div .c, body.style-80s #t > div .c2 {
+body.memphis #t > div .c, body.memphis #t > div .c2 {
   display: none;
 }
-body.style-80s #t > div .o.anim {
-  animation: fade-o 0.05s forwards;
-}
-body.style-80s #t > div .p.anim {
+body.memphis #t > div .p.anim {
   animation: fade-p 1s forwards;
 }
-body.style-80s #noko {
+body.memphis #noko {
   background: #fff;
   padding: 0.2em 1em;
 }
