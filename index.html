@@ -100,8 +100,6 @@
         ['w','d','m'].forEach((y,i) =>
           q(`#${y} li:nth-child(${n[i]})`)[0].className = 'a');
 
-        console.log(n);
-
         ['#th','#tm','#ts'].forEach((y,i) => {
           if (last[i] == n[i+3]) return;
           cur = n[i+3] < 10 ? '0' + n[i+3] : n[i+3];
