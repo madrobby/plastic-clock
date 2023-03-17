@@ -11,7 +11,7 @@ body {
   background: var(--bg-color);
   font-family: var(--font);
   --ui-font: 14px/1 var(--font);
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: calc(env(safe-area-inset-top) + 2em) calc(env(safe-area-inset-right) + 5vw) env(safe-area-inset-bottom) calc(env(safe-area-inset-left) + 5vw);
 }
 ul {
   display: flex;
