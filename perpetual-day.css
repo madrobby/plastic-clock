@@ -1,12 +1,12 @@
 :root {
-  --s: calc(max(2.7vh, 2.7vw) - .06rem);
+  --s: calc(max(2.4vh, 2.4vw) - .06rem);
   font: var(--s)/1 sans-serif;
 }
 body {
   margin: 0;
   background: var(--bg-color);
   font-family: var(--font);
-  --ui-font: 16px/1 var(--font);
+  --ui-font: 14px/1 var(--font);
 }
 #c {
   font-weight: bold;
