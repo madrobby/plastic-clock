@@ -70,10 +70,11 @@ li.a:after {
   display: none;
 }
 #sel {
+  font: var(--ui-font);
   position: fixed;
   right: 2em;
   top: 1em;
-  font: var(--ui-font);
+  top: calc(1em + env(safe-area-inset-top));
 }
 #sel select {
   background: var(--bg-color);
@@ -103,9 +104,10 @@ li.a:after {
 #noko {
   position: fixed;
   right: 2em;
-  bottom: 1em;
   color: var(--ui-color);
   font: var(--ui-font);
+  bottom: 1em;
+  bottom: calc(1em + env(safe-area-inset-bottom));
 }
 #noko > a {
   color: inherit;
