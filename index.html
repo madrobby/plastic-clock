@@ -70,16 +70,17 @@
 </div>
 <script>
   ((t) => {
-    var p, n, f = false, q = t.querySelectorAll.bind(t),
-      old, cur, last = [-1,-1,-1], r, h = (id,x) => q(id)[0].innerHTML = x;
+    var p, n, f = false, q = t.querySelectorAll.bind(t), lstor = 'localStorage' in window,
+      old, cur, last = [-1,-1,-1], r, h = (id,x) => q(id)[0].innerHTML = x,
+      sfs = (fs) => document.querySelector(":root").style.setProperty('font-size', fs+'rem');
 
     window.__style = x => {
       q('body')[0].className = x.value;
-      if ('localStorage' in window) localStorage['__style'] = x.value;
+      if (lstor) localStorage['__style'] = x.value;
       fit();
     }
 
-    if ('localStorage' in window && '__style' in localStorage) {
+    if (lstor && '__style' in localStorage) {
       q('body')[0].className = localStorage['__style'];
       q('#style')[0].value = localStorage['__style'];
     }
@@ -99,21 +100,17 @@
     function fit(){
       const h = innerHeight * 0.9, m = 1.05;
       var b, sz = 0.9, c = 50;
-
-      document.querySelector(":root").style.setProperty('font-size', sz+'rem');
+      sfs(sz);
 
       while(true) {
         b = q('#t')[0].getBoundingClientRect().bottom;
-        //console.log(b, h, sz);
-
         if (b > h) break;
         sz = sz * m;
         c = c - 1;
         if (c == 0) break;
-
-        document.querySelector(":root").style.setProperty('font-size', sz+'rem');
+        sfs(sz);
       }
-      document.querySelector(":root").style.setProperty('font-size', (sz/m)+'rem');
+      sfs(sz/m);
     }
     fit();
     addEventListener("resize", debounce(fit));
