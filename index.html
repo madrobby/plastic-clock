@@ -90,7 +90,7 @@
       });
 
     (function u(){
-      n = ((x) => [x.getDay()+1,x.getDate(),x.getMonth()+1,x.getHours()+1,x.getMinutes(),x.getSeconds()])(new Date());
+      n = ((x) => [x.getDay()+1,x.getDate(),x.getMonth()+1,x.getHours(),x.getMinutes(),x.getSeconds()])(new Date());
 
       if (!(n.join('/') == p)) {
         p = n.join('/');
@@ -99,6 +99,8 @@
 
         ['w','d','m'].forEach((y,i) =>
           q(`#${y} li:nth-child(${n[i]})`)[0].className = 'a');
+
+        console.log(n);
 
         ['#th','#tm','#ts'].forEach((y,i) => {
           if (last[i] == n[i+3]) return;
