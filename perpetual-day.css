@@ -1,5 +1,5 @@
 :root {
-  --s: calc(max(2.4vh, 2.4vw) - .06rem);
+  --s: calc(min(min(3vh, 3.5vw), max(4vh, 3vw)) - .06rem);
   font: var(--s)/1 sans-serif;
 }
 body {
