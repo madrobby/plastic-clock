@@ -374,6 +374,15 @@ body.keeping-up #t > div > div {
   text-align: left;
 }
 /* 1960s */
+@keyframes untype-p {
+  0%, 50% { clip-path: inset(0 60% 0 0); }
+  51%, to {  clip-path: inset(0 100% 0 0); }
+}
+@keyframes type-n {
+  0%, 79% { clip-path: inset(0 100% 0 0); }
+  80%, 99% { clip-path: inset(0 60% 0 0); }
+  to {  clip-path: inset(0 0 0 0); }
+}
 @font-face {
   font-family: 'Golf';
   src: url('ball.woff') format('woff');
@@ -407,15 +416,32 @@ body.golf-ball li.a:after {
 body.golf-ball #d li.a:after {
   content: '__';
 }
-
 body.golf-ball #t > div > div {
   background: none;
   color: var(--ui-color);
   text-align: left;
 }
+body.golf-ball #t .p.anim {
+  x-animation: 0.1s linear forwards untype-p;
+}
+body.golf-ball #t .n.anim {
+  x-animation: 0.2s linear forwards type-n;
+}
 body.golf-ball #t .p, body.golf-ball #t .c, body.golf-ball #t .c2 {
   display: none;
 }
 body.golf-ball #t #ts > div {
+  color: #a12;
+}
+body.golf-ball #t #th:after,
+body.golf-ball #t #tm:after {
+  content: ':';
+  position: absolute;
+  right: -0.3em;
+  bottom: 0.4em;
+  font-size: 2em;
+}
+body.golf-ball #t #tm:after {
+  content: ':';
   color: #a12;
 }
