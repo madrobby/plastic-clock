@@ -318,6 +318,7 @@ body.keeping-up {
   --font-size: 0.65rem;
   --line-height: 3;
   border: 2rem solid #706deb;
+  -webkit-font-smoothing: none;
 }
 body.keeping-up #sel {
   padding-right: 0.2rem;
