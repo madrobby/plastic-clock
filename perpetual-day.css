@@ -159,6 +159,7 @@ body.plastic ul {
 }
 body.plastic li {
   font-size: 0.8rem;
+  border-radius: 25%;
 }
 body.plastic #w, body.plastic #m {
   line-height: 2.1rem;
