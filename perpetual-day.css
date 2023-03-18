@@ -30,10 +30,10 @@ li {
   box-sizing: border-box;
   text-align: center;
   text-transform: lowercase;
-  border-radius: 25%;
+  /*border-radius: 25%;
   background: linear-gradient(to bottom right, #eeb, #dda);
   box-shadow: 0.2rem 0.2rem 0.5rem #cc8,
-            -0.2rem -0.2rem 0.5rem #ffc;
+            -0.2rem -0.2rem 0.5rem #ffc;*/
 }
 li.a {
   display: block !important;
@@ -371,4 +371,50 @@ body.keeping-up #t > div > div {
   line-height: var(--line-height);
   font-size: var(--font-size);
   text-align: left;
+}
+/* 1960s */
+@font-face {
+  font-family: 'Golf';
+  src: url('ball.woff') format('woff');
+  font-weight: normal;
+}
+body.golf-ball {
+  --ui-color: #223;
+  --bg-color: #f1e6d1;
+  --font: 'Golf', monospace;
+  --font-size: 1rem;
+  --line-height: 2;
+  background: repeat url(fibers.png), #f1e6d1;
+}
+body.golf-ball li {
+  text-align: left;
+}
+body.golf-ball li.a {
+  color: #a12;
+}
+body.golf-ball li.a:after {
+  content: '___';
+  transform: rotate(-0.5deg);
+  color: #a12;
+  border: none;
+  line-height: 1.83;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+body.golf-ball #d li.a:after {
+  content: '__';
+}
+
+body.golf-ball #t > div > div {
+  background: none;
+  color: var(--ui-color);
+  text-align: left;
+}
+body.golf-ball #t .p, body.golf-ball #t .c, body.golf-ball #t .c2 {
+  display: none;
+}
+body.golf-ball #t #ts > div {
+  color: #a12;
 }
