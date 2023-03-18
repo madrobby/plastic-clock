@@ -8,6 +8,7 @@ html, body {
 }
 body {
   margin: 0;
+  box-sizing: border-box;
   background: var(--bg-color);
   font-family: var(--font);
   --ui-font: 14px/1 var(--font);
@@ -303,4 +304,70 @@ body.memphis #t > div .p.anim {
 body.memphis #noko {
   background: #fff;
   padding: 0.2em 1em;
+}
+/* also 1980s */
+@font-face {
+  font-family: 'C64';
+  src: url('c64.woff2') format('woff2');
+  font-weight: normal;
+}
+body.keeping-up {
+  --ui-color: #2e2c9b;
+  --bg-color: #2e2c9b;
+  --font: 'C64', monospace;
+  --font-size: 0.65rem;
+  --line-height: 3;
+  border: 2rem solid #706deb;
+}
+body.keeping-up #sel {
+  padding-right: 0.2rem;
+  right: 1.75rem;
+}
+body.keeping-up #noko {
+  right: 2rem;
+}
+body.keeping-up #sel:after {
+  content: 'Ù';
+  transform: rotate(45deg) scale(0.7);
+}
+body.keeping-up #sel select {
+  border: none;
+  background: none;
+}
+body.keeping-up #c {
+  margin-top: -2rem;
+}
+body.keeping-up li {
+  border-radius: 0;
+  background: transparent;/* var(--ui-color);*/
+  box-shadow: none;
+  text-transform: uppercase;
+  color: #edf171;
+  line-height: var(--line-height);
+  font-size: var(--font-size);
+  text-align: left;
+  text-indent: 0.05em;
+}
+body.keeping-up li.a {
+  background: #706deb;
+}
+body.keeping-up li.a:after {
+  display: none;
+  border-radius: 0;
+  border: 0.35rem solid #fff;
+}
+body.keeping-up #d li {
+  color: #fff;
+}
+body.keeping-up #t > div {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+}
+body.keeping-up #t > div > div {
+  background: #75cec8;
+  border-radius: 0;
+  line-height: var(--line-height);
+  font-size: var(--font-size);
+  text-align: left;
 }

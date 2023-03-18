@@ -62,7 +62,8 @@
 <div id="sel">
   <select id="style" onchange="__style(this)">
     <option value="plastic">Plastic</option>
-    <option value="memphis" selected>Memphis</option>
+    <option value="memphis">Memphis</option>
+    <option value="keeping-up" selected>Keeping Up</option>
   </select>
 </div>
 <div id="noko">
@@ -92,7 +93,7 @@
       let timer;
       return (...args) => {
         clearTimeout(timer);
-       timer = setTimeout(() => { func.apply(this, args); }, timeout);
+        timer = setTimeout(() => { func.apply(this, args); }, timeout);
       };
     }
 
