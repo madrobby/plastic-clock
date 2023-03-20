@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Perpetual Day Calendar brought to you by Noko Time Tracking</title>
-  <link rel="stylesheet" href="perpetual-day.css">
+  <title>Perpetual Day Calendar by Noko Time Tracking</title>
+  <link rel="stylesheet" href="perpetual-day.css?202303201443">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="apple-mobile-web-app-title" content="Perpetual Day">
@@ -33,20 +33,20 @@
 <li>Jan</li><li>Feb</li><li>Mar</li><li>Apr</li><li>May</li><li>Jun</li><li>Jul</li><li>Aug</li><li>Sep</li><li>Oct</li><li>Nov</li><li>Dec</li>
 </ul>
 
-<div id="t">
-  <div id="th">
+<div id="time">
+  <div id="timeh">
     <div class="n"></div>
     <div class="p"></div>
     <div class="c2"></div>
     <div class="c"></div>
   </div>
-  <div id="tm">
+  <div id="timem">
     <div class="n"></div>
     <div class="p"></div>
     <div class="c2"></div>
     <div class="c"></div>
   </div>
-  <div id="ts">
+  <div id="times">
     <div class="n"></div>
     <div class="p"></div>
     <div class="c2"></div>
@@ -56,7 +56,7 @@
 
 </div>
 <div id="sel">
-  <select id="style" onchange="__style(this)">
+  <select id="style">
     <option value="plastic">Plastic</option>
     <option value="memphis" selected>Memphis</option>
     <option value="keeping-up">Keeping Up</option>
@@ -69,40 +69,42 @@
 </div>
 <script>
   ((t) => {
-    var p, n, f = false, q = t.querySelectorAll.bind(t), lstor = 'localStorage' in window,
-      old, cur, last = [-1,-1,-1], r, h = (id,x) => q(id)[0].innerHTML = x,
+    let p, n, nextFrame = false,
+      $$ = t.querySelectorAll.bind(t),
+      $ = t.querySelector.bind(t),
+      lstor = 'localStorage' in window,
+      old, cur, last = [-1,-1,-1], r,
+      h = (id,x) => $(id).innerHTML = x,
       sfs = (fs) => document.querySelector(":root").style.setProperty('font-size', fs+'rem');
 
-    window.__style = x => {
-      q('body')[0].className = x.value;
-      if (lstor) localStorage['__style'] = x.value;
-      fit();
+    let setTheme = () => {
+      $('body').className = $('#style').value;
+      if (lstor) localStorage['__style'] = $('#style').value;
+      stretchToFit();
     }
+    $('#style').addEventListener('change', setTheme);
 
+    // set options from querystring
+    // TODO
+
+    // restore saved theme
     if (lstor && '__style' in localStorage) {
-      q('body')[0].className = localStorage['__style'];
-      q('#style')[0].value = localStorage['__style'];
+      $('body').className = localStorage['__style'];
+      $('#style').value = localStorage['__style'];
     }
 
-    q("#d")[0].innerHTML =
+    // prep days
+    $("#d").innerHTML =
       [...Array(31).keys()].map(j => `<li>${j+1}</li>`).join('');
 
-    function debounce(func, timeout = 300){
-      let timer;
-      return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => { func.apply(this, args); }, timeout);
-      };
-    }
-
     // why, oh, why doesn't CSS have anything proper to fit things into other things
-    function fit(){
+    let stretchToFit = () => {
       const h = innerHeight * 0.9, m = 1.05;
-      var b, sz = 0.9, c = 50;
+      let b, sz = 0.9, c = 50;
       sfs(sz);
 
       while(true) {
-        b = q('#t')[0].getBoundingClientRect().bottom;
+        b = $('#time').getBoundingClientRect().bottom;
         if (b > h) break;
         sz = sz * m;
         c = c - 1;
@@ -110,29 +112,37 @@
         sfs(sz);
       }
       sfs(sz/m);
-    }
-    fit();
-    addEventListener("resize", debounce(fit));
+    };
+    let debounce = (func, timeout = 100) => {
+      let timer;
+      return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => { func.apply(this, args); }, timeout);
+      };
+    };
 
-    r = (x) =>
-      Array.from(q(x)).forEach(e => {
+    stretchToFit();
+    addEventListener("resize", debounce(stretchToFit));
+
+    let resetAnimation = (x) =>
+      Array.from($$(x)).forEach(e => {
         e.classList.remove('anim');
         e.offsetHeight;
         e.classList.add('anim');
       });
 
-    (function u(){
+    let update = () => {
       n = ((x) => [x.getDay()+1,x.getDate(),x.getMonth()+1,x.getHours(),x.getMinutes(),x.getSeconds()])(new Date());
 
       if (!(n.join('/') == p)) {
         p = n.join('/');
 
-        Array.from(q('li')).forEach(l => l.className = '');
+        Array.from($$('li')).forEach(l => l.className = '');
 
         ['w','d','m'].forEach((y,i) =>
-          q(`#${y} li:nth-child(${n[i]})`)[0].className = 'a');
+          $(`#${y} li:nth-child(${n[i]})`).className = 'a');
 
-        ['#th','#tm','#ts'].forEach((y,i) => {
+        ['#timeh','#timem','#times'].forEach((y,i) => {
           if (last[i] == n[i+3]) return;
           cur = n[i+3] < 10 ? '0' + n[i+3] : n[i+3];
           old = n[i+3] == 0 ? 59 : n[i+3]-1;
@@ -141,16 +151,18 @@
           h(y+' .p', old);
           h(y+' .c', cur);
           h(y+' .c2', old);
-          r(y+' > div');
+          resetAnimation(y+' > div');
         });
         last = [n[3],n[4],n[5]];
       }
 
       setTimeout(() => {
-        if(f) cancelAnimationFrame(f);
-        f = requestAnimationFrame(u);
+        if(nextFrame) cancelAnimationFrame(nextFrame);
+        nextFrame = requestAnimationFrame(update);
       }, 1000);
-    })();
+    };
+
+    update();
   })(document);
 </script>
 </body>

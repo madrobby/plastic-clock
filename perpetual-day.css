@@ -50,7 +50,7 @@ li.a:after {
   transform: translateZ(1px);
   z-index: 1;
 }
-#t {
+#time {
   display: flex;
 }
 #h li, #u li {
@@ -105,17 +105,17 @@ li.a:after {
 #noko > a {
   color: inherit;
 }
-#t {
+#time {
   margin: 0 2rem;
 }
-#t > div {
+#time > div {
   position: relative;
   perspective: 300px;
   width: 3rem;
   height: 3rem;
   margin-right: 0.25rem;
 }
-#t > div > div {
+#time > div > div {
   position: absolute;
   text-align: center;
   left: 0;
@@ -173,22 +173,22 @@ body.plastic li {
 body.plastic li.a:after {
   border-color: #5a3d2b;
 }
-body.plastic #t {
+body.plastic #time {
   margin: 0 2rem;
 }
-body.plastic #t > div > div {
+body.plastic #time > div > div {
   line-height: 1.6em;
 }
-body.plastic #t > div .c {
+body.plastic #time > div .c {
   clip-path: inset(0 0 50% 0);
   z-index: 0;
 }
-body.plastic #t > div .c2 {
+body.plastic #time > div .c2 {
   top: var(--flip-gap);
   clip-path: inset(50% 0 0 0);
   z-index: 0;
 }
-body.plastic #t > div .n {
+body.plastic #time > div .n {
   top: var(--flip-gap);
   clip-path: inset(50% 0 0 0);
   backface-visibility: hidden;
@@ -196,17 +196,17 @@ body.plastic #t > div .n {
   background-color: #1e120b;
   z-index: 1;
 }
-body.plastic #t > div .n.anim {
+body.plastic #time > div .n.anim {
   animation: flip-n var(--flip-speed) forwards;
 }
-body.plastic #t > div .p {
+body.plastic #time > div .p {
   clip-path: inset(0 0 50% 0);
   backface-visibility: hidden;
   transform: rotateX(1deg);
   background-color: #5a3d2b;
   z-index: 1;
 }
-body.plastic #t > div .p.anim {
+body.plastic #time > div .p.anim {
   animation: flip-p var(--flip-speed) forwards;
 }
 /*80s*/
@@ -267,39 +267,39 @@ body.memphis li.a:after {
   right: -0.4rem;
   bottom: -0.4rem;
 }
-body.memphis #t {
+body.memphis #time {
   transform: translateY(3em) rotate(-14deg);
   position: relative;
   display: table;
   float: right;
 }
-body.memphis #t > div {
+body.memphis #time > div {
   display: table-cell;
   width: 5em;
   height: 5em;
   opacity: 0.99;
 }
-body.memphis #t > div > div {
+body.memphis #time > div > div {
   font: 3.3em/1.5 var(--font), monospace;
   border-radius: 50%;
   text-indent: 0.1em;
 }
-body.memphis #t > #th > div {
+body.memphis #time > #timeh > div {
   background: #ffe106;
   color: #f95fa5;
 }
-body.memphis #t > #tm > div {
+body.memphis #time > #timem > div {
   background: #04d6f9;
   color: #000;
 }
-body.memphis #t > #ts > div {
+body.memphis #time > #times > div {
   background: #f95fa5;
   color: #ffe106;
 }
-body.memphis #t > div .c, body.memphis #t > div .c2 {
+body.memphis #time > div .c, body.memphis #time > div .c2 {
   display: none;
 }
-body.memphis #t > div .p.anim {
+body.memphis #time > div .p.anim {
   animation: fade-p 1s forwards;
 }
 body.memphis #noko {
@@ -361,12 +361,12 @@ body.keeping-up li.a:after {
 body.keeping-up #d li {
   color: #fff;
 }
-body.keeping-up #t > div {
+body.keeping-up #time > div {
   width: 2rem;
   height: 2rem;
   margin-right: 0.5rem;
 }
-body.keeping-up #t > div > div {
+body.keeping-up #time > div > div {
   background: #75cec8;
   border-radius: 0;
   line-height: var(--line-height);
@@ -416,32 +416,32 @@ body.golf-ball li.a:after {
 body.golf-ball #d li.a:after {
   content: '__';
 }
-body.golf-ball #t > div > div {
+body.golf-ball #time > div > div {
   background: none;
   color: var(--ui-color);
   text-align: left;
 }
-body.golf-ball #t .p.anim {
+body.golf-ball #time .p.anim {
   x-animation: 0.1s linear forwards untype-p;
 }
-body.golf-ball #t .n.anim {
+body.golf-ball #time .n.anim {
   x-animation: 0.2s linear forwards type-n;
 }
-body.golf-ball #t .p, body.golf-ball #t .c, body.golf-ball #t .c2 {
+body.golf-ball #time .p, body.golf-ball #time .c, body.golf-ball #time .c2 {
   display: none;
 }
-body.golf-ball #t #ts > div {
+body.golf-ball #time #times > div {
   color: #a12;
 }
-body.golf-ball #t #th:after,
-body.golf-ball #t #tm:after {
+body.golf-ball #time #timeh:after,
+body.golf-ball #time #timem:after {
   content: ':';
   position: absolute;
   right: -0.3em;
   bottom: 0.4em;
   font-size: 2em;
 }
-body.golf-ball #t #tm:after {
+body.golf-ball #time #timem:after {
   content: ':';
   color: #a12;
 }
@@ -461,7 +461,7 @@ body.moof {
   #000;
   -webkit-font-smoothing: none;
 }
-body.moof #t,
+body.moof #time,
 body.moof ul {
   border: 2px solid black;
   box-shadow: 1px 1px 0 0.5px #000;
@@ -490,20 +490,20 @@ body.moof #sel select {
   border-radius: 0;
   box-shadow: 0.5px 0.5px 0 0.5px #000;
 }
-body.moof #t {
+body.moof #time {
   padding: 0 1em;
 }
-body.moof #t > div > div {
+body.moof #time > div > div {
   border-radius: 0;
   color: #000;
   line-height: 1.5;
   background: transparent;
 }
-body.moof #t .p, body.moof #t .c, body.moof #t .c2 {
+body.moof #time .p, body.moof #time .c, body.moof #time .c2 {
   display: none;
 }
-body.moof #t #th:after,
-body.moof #t #tm:after {
+body.moof #time #timeh:after,
+body.moof #time #timem:after {
   content: ':';
   color: #000;
   position: absolute;
