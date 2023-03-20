@@ -445,3 +445,72 @@ body.golf-ball #t #tm:after {
   content: ':';
   color: #a12;
 }
+/* more 1980s */
+@font-face {
+  font-family: 'Chicago';
+  src: url('Chicago.woff2') format('woff2');
+  font-weight: normal;
+}
+body.moof {
+  --ui-color: #000;
+  --bg-color: #fff;
+  --font: 'Chicago', sans-serif;
+  --font-size: 1rem;
+  --line-height: 2;
+  background: repeat url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQAAAABazTCJAAAADElEQVR42mNwYGgAAAFEAMEEh8/6AAAAAElFTkSuQmCC");
+  #000;
+  -webkit-font-smoothing: none;
+}
+body.moof #t,
+body.moof ul {
+  border: 2px solid black;
+  box-shadow: 1px 1px 0 0.5px #000;
+  padding: 1em;
+  background: #fff;
+}
+body.moof li {
+  font-size: 0.85em;
+  height: 1rem;
+  line-height: 1.2;
+}
+body.moof li.a {
+  border-radius: 4px;
+  box-shadow: /*0 0 0 3px #fff,*/ 0 0 0 6px #000;
+  background: #000;
+  color: #fff;
+}
+body.moof li.a:after {
+  border: none;
+}
+body.moof #sel,
+body.moof #noko {
+  -webkit-font-smoothing: antialiased;
+}
+body.moof #sel select {
+  border-radius: 0;
+  box-shadow: 0.5px 0.5px 0 0.5px #000;
+}
+body.moof #t {
+  padding: 0 1em;
+}
+body.moof #t > div > div {
+  border-radius: 0;
+  color: #000;
+  line-height: 1.5;
+  background: transparent;
+}
+body.moof #t .p, body.moof #t .c, body.moof #t .c2 {
+  display: none;
+}
+body.moof #t #th:after,
+body.moof #t #tm:after {
+  content: ':';
+  color: #000;
+  position: absolute;
+  right: -0.23em;
+  bottom: 0.3em;
+  font-size: 2em;
+}
+body.moof #sel:after {
+  top: 0.05em;
+}
