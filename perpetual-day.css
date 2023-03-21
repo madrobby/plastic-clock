@@ -6,6 +6,10 @@ html, body {
   height: 100%;
   overflow: hidden;
 }
+html[data-standalone="true"] {
+  box-sizing: border-box;
+  height: 100vh;
+}
 body {
   margin: 0;
   box-sizing: border-box;
@@ -328,8 +332,6 @@ html[data-standalone="true"] body.keeping-up {
   padding: 0;
 }
 html[data-standalone="true"][data-theme="keeping-up"] {
-  box-sizing: border-box;
-  height: 100vh;
   border: 4rem solid #706deb;
 }
 html[data-standalone="true"] body.keeping-up #sel {
@@ -486,10 +488,6 @@ body.golf-ball #time #timem:after {
   font-family: 'Chicago';
   src: url('Chicago.woff2') format('woff2');
   font-weight: normal;
-}
-html[data-standalone="true"][data-theme="moof"] {
-  box-sizing: border-box;
-  height: 100vh;
 }
 body.moof {
   --ui-color: #000;
