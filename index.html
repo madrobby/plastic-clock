@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Perpetual Day Calendar by Noko Time Tracking</title>
-  <link rel="stylesheet" href="perpetual-day.css?202303201443">
+  <link rel="stylesheet" href="perpetual-day.css?202303210910">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="apple-mobile-web-app-title" content="Perpetual Day">
@@ -23,15 +23,16 @@
   <script src="https://cdn.usefathom.com/script.js" data-site="FKOWVRGD" defer></script>
 </head>
 <body class="memphis">
+
 <div id="c">
-<ul id="w">
-<li>Sun</li><li>Mon</li><li>Tue</li><li>Wed</li><li>Thu</li><li>Fri</li><li>Sat</li>
-</ul>
-<ul id="d">
-</ul>
-<ul id="m">
-<li>Jan</li><li>Feb</li><li>Mar</li><li>Apr</li><li>May</li><li>Jun</li><li>Jul</li><li>Aug</li><li>Sep</li><li>Oct</li><li>Nov</li><li>Dec</li>
-</ul>
+  <ul id="w">
+  <li>Sun</li><li>Mon</li><li>Tue</li><li>Wed</li><li>Thu</li><li>Fri</li><li>Sat</li>
+  </ul>
+  <ul id="d">
+  </ul>
+  <ul id="m">
+  <li>Jan</li><li>Feb</li><li>Mar</li><li>Apr</li><li>May</li><li>Jun</li><li>Jul</li><li>Aug</li><li>Sep</li><li>Oct</li><li>Nov</li><li>Dec</li>
+  </ul>
 
 <div id="time">
   <div id="timeh">
@@ -54,7 +55,6 @@
   </div>
 </div>
 
-</div>
 <div id="sel">
   <select id="style">
     <option value="plastic">Plastic</option>
@@ -62,11 +62,13 @@
     <option value="keeping-up">Keeping Up</option>
     <option value="golf-ball">Golf Ball</option>
     <option value="moof">Moof!</option>
+    <option value="technobabble">Technobabble</option>
   </select>
 </div>
 <div id="noko">
-  Perpetual Calendar :: <a href="https://nokotime.com/">Noko Time Tracking</a>
+  <span>Perpetual Calendar by <a href="https://nokotime.com/">Noko Time Tracking</a></span>
 </div>
+</div>  
 <script>
   ((t) => {
     let p, n, nextFrame = false,
@@ -100,7 +102,7 @@
     // why, oh, why doesn't CSS have anything proper to fit things into other things
     let stretchToFit = () => {
       const h = innerHeight * 0.9, m = 1.05;
-      let b, sz = 0.9, c = 50;
+      let b, sz = 0.4, c = 50;
       sfs(sz);
 
       while(true) {

@@ -11,7 +11,7 @@ body {
   box-sizing: border-box;
   background: var(--bg-color);
   font-family: var(--font);
-  --ui-font: 14px/1 var(--font);
+  --ui-font: 16px/1 var(--font);
   padding: calc(env(safe-area-inset-top) + 2em) calc(env(safe-area-inset-right) + 5vw) env(safe-area-inset-bottom) calc(env(safe-area-inset-left) + 5vw);
 }
 ul {
@@ -50,6 +50,9 @@ li.a:after {
   transform: translateZ(1px);
   z-index: 1;
 }
+#c {
+  position: relative;
+}
 #time {
   display: flex;
 }
@@ -77,14 +80,15 @@ li.a:after {
   appearance: none;
   outline: none;
   font: var(--ui-font);
+  font-size: 16px;
 }
 #sel:after {
   content: '▾';
   position: absolute;
-  top:0.1em;
-  font-size: 1.4em;
+  top:0.3em;
+  font-size: 16px;
   color: var(--ui-color);
-  right:0.5em;
+  right:0.7em;
   pointer-events: none;
 }
 #sel:hover select {
@@ -96,13 +100,17 @@ li.a:after {
 }
 #noko {
   position: fixed;
+  left: 2em;
   right: 2em;
   color: var(--ui-color);
   font: var(--ui-font);
   bottom: 1em;
   bottom: calc(1em + env(safe-area-inset-bottom));
+  text-align: right;
 }
-#noko > a {
+#noko a {
+  display: inline-block;
+  white-space: nowrap;
   color: inherit;
 }
 #time {
@@ -302,7 +310,7 @@ body.memphis #time > div .c, body.memphis #time > div .c2 {
 body.memphis #time > div .p.anim {
   animation: fade-p 1s forwards;
 }
-body.memphis #noko {
+body.memphis #noko > span {
   background: #fff;
   padding: 0.2em 1em;
 }
@@ -512,5 +520,212 @@ body.moof #time #timem:after {
   font-size: 2em;
 }
 body.moof #sel:after {
-  top: 0.05em;
+  top: 0.3em;
+}
+/* more 1980s??! */
+@font-face {
+  font-family: 'technobabble';
+  src: url('technobabble.woff') format('woff');
+  font-weight: normal;
+}
+body.technobabble {
+  --ui-color: #236fc4;
+  --bg-color: #000;
+  --font: 'technobabble', sans-serif;
+  --font-size: 1rem;
+  --line-height: 2;
+}
+body.technobabble ul,
+body.technobabble #time {
+  margin: 0.2em 2em;
+  padding: 0.25em 0 0 0.45em;
+}
+body.technobabble li {
+  color: #80622e;
+  font-size: 1em;
+  width: 3rem;
+  line-height: 2.7em;
+  text-align: left;
+  text-indent: 0.4em;
+  text-transform: uppercase;
+  background:#f7bd5a;
+  color: #000;
+}
+body.technobabble li.a {
+  color: #fff;
+  background: transparent;
+  font-size: 2.5em;
+  width: 3rem;
+  line-height: 1em;
+  text-indent: 0;
+  text-align: center;
+}
+body.technobabble #w {
+  border-left: 2em solid #cc99cc;
+  position: relative;
+  border-top-left-radius: 1.2em;
+  padding-top: 1.5em;
+}
+body.technobabble #w:before {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1em;
+  height: 0.5em;
+  width: 0.5em;
+  background: transparent;
+  border-top-left-radius: 0.5em;
+  box-shadow: 0 0 0 0.5em #cc99cc;
+  clip-path: inset(0 0.05em 0.05em 0);
+}
+body.technobabble #w:after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1.0em;
+  top: 0em;
+  background: #cc99cc;
+}
+body.technobabble #w li {
+  background: #cc99cc;
+}
+body.technobabble #w li.a,
+body.technobabble #m li.a {
+  background: transparent;
+}
+body.technobabble #d {
+  border-left: 2em solid #f7bd5a;
+}
+body.technobabble #m {
+  border-left: 2em solid #ffff9c;
+}
+body.technobabble #m li {
+  background: #ffff9c;
+}
+body.technobabble li.a:after {
+  display: none;
+}
+body.technobabble #time {
+  border-left: 2em solid #ed884c;
+  border-bottom-left-radius: 1.2em;
+  position: relative;
+  padding-bottom: 1em;
+}
+body.technobabble #time:before {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1em;
+  height: 0.5em;
+  width: 0.5em;
+  background: transparent;
+  border-bottom-left-radius: 0.5em;
+  box-shadow: 0 0 0 0.5em #ed884c;
+  clip-path: inset(0.05em 0.05em 0 0);
+}
+body.technobabble #time:after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1em;
+  bottom: 0em;
+  background: #ed884c;
+}
+body.technobabble #time > div {
+  background: #ff9c00;
+  width: 3em;
+  margin: 0 -0.05em 0.3em 0;
+}
+body.technobabble #time > div:first-child {
+  border-top-left-radius: 1.5em;
+  border-bottom-left-radius: 1.5em;
+  padding-left: 1em;
+}
+body.technobabble #time > div:last-child {
+  border-top-right-radius: 1.5em;
+  border-bottom-right-radius: 1.5em;
+  padding-right: 1em;
+}
+body.technobabble #time > div > div {
+  color: #000;
+  background: transparent;
+  border-radius: none;
+  line-height: 1.15;
+  font-size: 3em;
+  width: auto;
+}
+body.technobabble #noko {
+  color: #ed884c;
+  background: #000;
+  position: absolute;
+  bottom: -0.15em;
+  font-size: 1.1em;
+  height: 1.1em;
+  right: 4em;
+  left: auto;
+  padding: 0 0.5em;
+  text-transform: uppercase;
+}
+body.technobabble #noko a {
+  color: #ed884c;
+  text-decoration: none;
+}
+body.technobabble #time .p, body.technobabble #time .c, body.technobabble #time .c2 {
+  display: none;
+}
+body.technobabble #sel {
+  color: #fff;
+  background: transparent;
+  position: absolute;
+  top: -0.15em;
+  font-size: 1.1em;
+  height: 1.1em;
+  right: 0;
+  margin-left: -4em;
+  padding: 0 4.5em 0 0.5em;
+  text-transform: uppercase;
+}
+body.technobabble #sel:after {
+  position: absolute;
+  color: #000;
+  background: #cc99cc;
+  right: 1.8em;
+  top: 0.15em;
+  width: 1.5em;
+  height: 1em;
+  border-radius: 1em;
+  text-align: center;
+  font-size: 1em;
+}
+body.technobabble #sel:before {
+  content: ' ';
+  position: absolute;
+  color: #000;
+  background: #cc99cc;
+  right: 3.5em;
+  top: 0.15em;
+  width: 0.8em;
+  height: 1em;
+  font-size: 1em;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  z-index: 1;
+}
+body.technobabble #sel select {
+  border: 0;
+  display: block;
+  position: relative;
+  color: #fff;
+  background: #000;
+  padding: 0.1em 0 0 0.25em;
+  font-size: 1.1em;
+  height: 1.1em;
+  padding-right: 2.5em;
+  right: -2.5em;
+  border-radius: 0;
+  text-transform: uppercase;
 }
