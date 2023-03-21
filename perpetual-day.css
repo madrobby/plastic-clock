@@ -561,7 +561,7 @@ body.technobabble li.a {
   text-align: center;
 }
 body.technobabble #w {
-  border-left: 2em solid #cc99cc;
+  border-left: 4em solid #cc99cc;
   position: relative;
   border-top-left-radius: 1.2em;
   padding-top: 1.5em;
@@ -577,7 +577,7 @@ body.technobabble #w:before {
   background: transparent;
   border-top-left-radius: 0.5em;
   box-shadow: 0 0 0 0.5em #cc99cc;
-  clip-path: inset(0 0.05em 0.05em 0);
+  clip-path: inset(0 0.06em 0.06em 0);
 }
 body.technobabble #w:after {
   content: ' ';
@@ -596,10 +596,10 @@ body.technobabble #m li.a {
   background: transparent;
 }
 body.technobabble #d {
-  border-left: 2em solid #f7bd5a;
+  border-left: 4em solid #f7bd5a;
 }
 body.technobabble #m {
-  border-left: 2em solid #ffff9c;
+  border-left: 4em solid #ffff9c;
 }
 body.technobabble #m li {
   background: #ffff9c;
@@ -608,7 +608,7 @@ body.technobabble li.a:after {
   display: none;
 }
 body.technobabble #time {
-  border-left: 2em solid #ed884c;
+  border-left: 4em solid #ed884c;
   border-bottom-left-radius: 1.2em;
   position: relative;
   padding-bottom: 1em;
@@ -624,7 +624,7 @@ body.technobabble #time:before {
   background: transparent;
   border-bottom-left-radius: 0.5em;
   box-shadow: 0 0 0 0.5em #ed884c;
-  clip-path: inset(0.05em 0.05em 0 0);
+  clip-path: inset(0.06em 0.06em 0 0);
 }
 body.technobabble #time:after {
   content: ' ';
