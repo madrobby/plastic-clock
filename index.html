@@ -84,9 +84,11 @@
     }
 
     let setTheme = () => {
-      $('html').setAttribute('data-theme', $('#style').value);
-      $('body').className = $('#style').value;
-      if (lstor) localStorage['__style'] = $('#style').value;
+      let theme = $('#style').value;
+      $('html').setAttribute('data-theme', theme);
+      $('body').className =theme;
+      if (lstor) localStorage['__style'] = theme;
+      history.pushState('','','/?'+theme);
       stretchToFit();
     }
     $('#style').addEventListener('change', setTheme);
@@ -97,6 +99,12 @@
     // restore saved theme
     if (lstor && '__style' in localStorage)
       $('#style').value = localStorage['__style'];
+
+    // override theme
+    if (!(location.search == '') && !(location.search == '?')) {
+      let config = location.search.split("?")[1].split('|');
+      $('#style').value = config[0];
+    }
 
     // prep days
     $("#d").innerHTML =
