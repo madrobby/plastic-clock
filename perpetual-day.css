@@ -577,7 +577,7 @@ body.technobabble #w:before {
   background: transparent;
   border-top-left-radius: 0.5em;
   box-shadow: 0 0 0 0.5em #cc99cc;
-  clip-path: inset(0 0.06em 0.06em 0);
+  clip-path: inset(0 0 0 0);
 }
 body.technobabble #w:after {
   content: ' ';
@@ -618,13 +618,13 @@ body.technobabble #time:before {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 1em;
+  bottom: 0.975em;
   height: 0.5em;
   width: 0.5em;
   background: transparent;
   border-bottom-left-radius: 0.5em;
   box-shadow: 0 0 0 0.5em #ed884c;
-  clip-path: inset(0.06em 0.06em 0 0);
+  clip-path: inset(0 0 0 0);
 }
 body.technobabble #time:after {
   content: ' ';
