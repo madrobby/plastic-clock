@@ -662,12 +662,13 @@ body.technobabble #noko {
   color: #ed884c;
   background: #000;
   position: absolute;
-  bottom: -0.15em;
-  font-size: 1.1em;
+  bottom: -0.19em;
+  font-size: 1.2em;
   height: 1.1em;
+  line-height: 1.1;
   right: 4em;
   left: auto;
-  padding: 0 0.5em;
+  padding: 0 0.25em;
   text-transform: uppercase;
 }
 body.technobabble #noko a {
