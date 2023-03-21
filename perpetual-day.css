@@ -320,12 +320,38 @@ body.memphis #noko > span {
   src: url('c64.woff2') format('woff2');
   font-weight: normal;
 }
+html[data-standalone="true"] body.keeping-up #noko {
+  display: none;
+}
+html[data-standalone="true"] body.keeping-up {
+  border: none;
+  padding: 0;
+}
+html[data-standalone="true"][data-theme="keeping-up"] {
+  box-sizing: border-box;
+  height: 100vh;
+  border: 4rem solid #706deb;
+}
+html[data-standalone="true"] body.keeping-up #sel {
+  right: 0;
+  bottom: 2.4rem;
+  top: auto;
+}
+html[data-standalone="true"] body.keeping-up #sel select {
+  color: transparent;
+}
+html[data-standalone="true"] body.keeping-up #sel:after {
+  content: 'ã';
+  transform: translateX(-1rem);
+  color: #fff;
+}
 body.keeping-up {
   --ui-color: #2e2c9b;
   --bg-color: #2e2c9b;
   --font: 'C64', monospace;
   --font-size: 0.65rem;
   --line-height: 3;
+  padding: 0;
   border: 2rem solid #706deb;
   -webkit-font-smoothing: none;
 }
@@ -345,7 +371,9 @@ body.keeping-up #sel select {
   background: none;
 }
 body.keeping-up #c {
-  margin-top: -2rem;
+}
+body.keeping-up ul, body.keeping-up #time {
+  margin: 0;
 }
 body.keeping-up li {
   border-radius: 0;
@@ -459,6 +487,10 @@ body.golf-ball #time #timem:after {
   src: url('Chicago.woff2') format('woff2');
   font-weight: normal;
 }
+html[data-standalone="true"][data-theme="moof"] {
+  box-sizing: border-box;
+  height: 100vh;
+}
 body.moof {
   --ui-color: #000;
   --bg-color: #fff;
@@ -534,6 +566,9 @@ body.technobabble {
   --font: 'technobabble', sans-serif;
   --font-size: 1rem;
   --line-height: 2;
+}
+html[data-standalone="true"] body.technobabble {
+  padding: calc(env(safe-area-inset-top)) calc(env(safe-area-inset-right)) env(safe-area-inset-bottom) calc(env(safe-area-inset-left));
 }
 body.technobabble ul,
 body.technobabble #time {

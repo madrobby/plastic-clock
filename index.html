@@ -68,7 +68,7 @@
 <div id="noko">
   <span>Perpetual Calendar by <a href="https://nokotime.com/">Noko Time Tracking</a></span>
 </div>
-</div>  
+</div>
 <script>
   ((t) => {
     let p, n, nextFrame = false,
@@ -79,7 +79,12 @@
       h = (id,x) => $(id).innerHTML = x,
       sfs = (fs) => document.querySelector(":root").style.setProperty('font-size', fs+'rem');
 
+    if (navigator.standalone) {
+      $('html').setAttribute('data-standalone', 'true');
+    }
+
     let setTheme = () => {
+      $('html').setAttribute('data-theme', $('#style').value);
       $('body').className = $('#style').value;
       if (lstor) localStorage['__style'] = $('#style').value;
       stretchToFit();
@@ -90,10 +95,8 @@
     // TODO
 
     // restore saved theme
-    if (lstor && '__style' in localStorage) {
-      $('body').className = localStorage['__style'];
+    if (lstor && '__style' in localStorage)
       $('#style').value = localStorage['__style'];
-    }
 
     // prep days
     $("#d").innerHTML =
@@ -123,7 +126,7 @@
       };
     };
 
-    stretchToFit();
+    setTheme();
     addEventListener("resize", debounce(stretchToFit));
 
     let resetAnimation = (x) =>
