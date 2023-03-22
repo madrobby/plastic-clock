@@ -763,3 +763,66 @@ body.technobabble #sel select {
   border-radius: 0;
   text-transform: uppercase;
 }
+/* */
+@font-face {
+  font-family: 'gilbert';
+  src: url('gilbert.otf');
+  font-weight: normal;
+}
+body.pride {
+  --ui-color: #fff;
+  --bg-color: transparent;
+  --font: 'gilbert', sans-serif;
+  --font-size: 1rem;
+  --line-height: 2;
+  background-image: linear-gradient(to top left, transparent 50%, #000 calc(50% + 1px), #000 calc(60%), #794e10 calc(60% + 1px), #794e10 calc(70%), #5bcefa calc(70% + 1px), #5bcefa calc(80%), #f5a9b8 calc(80% + 1px), #f5a9b8 calc(90%), #fff calc(90% + 1px)), linear-gradient(to bottom left, transparent 50%, #000 calc(50% + 1px), #000 calc(60%), #794e10 calc(60% + 1px), #794e10 calc(70%), #5bcefa calc(70% + 1px), #5bcefa calc(80%), #f5a9b8 calc(80% + 1px), #f5a9b8 calc(90%), #fff calc(90% + 1px)), linear-gradient(#e40303 calc((100%/6) * 1), #ff8c00 calc((100%/6) * 1), #ff8c00 calc((100%/6) * 2), #ffed00 calc((100%/6) * 2), #ffed00 calc((100%/6) * 3), #008026 calc((100%/6) * 3), #008026 calc((100%/6) * 4), #004dff calc((100%/6) * 4), #004dff calc((100%/6) * 5), #750787 calc((100%/6) * 5));
+  background-size: 40% 50.01%, 40% 50.01%, 100% 100%;
+  background-position: 0 100%, 0 0, 100% 0;
+  background-repeat: no-repeat;
+  -webkit-backdrop-filter: blur(1em);
+  backdrop-filter: blur(1em);
+  color: inherit;
+}
+body.pride li {
+  background: none;
+  color: #fff;
+  font-size: 1.1em;
+  line-height: 1.8;
+  text-transform: none;
+}
+body.pride #d li {
+  font-size: 1.5em;
+  line-height: 1.45;
+}
+body.pride li.a {
+  color: #fff;
+}
+body.pride li.a:after {
+  border-color: #fff;
+  border-width: 0.2rem;
+}
+body.pride #time {
+  justify-content: end;
+}
+body.pride #time > div {
+  width: 2em;
+}
+body.pride #time > div > div {
+  background: transparent;
+  color: #fff;
+}
+body.pride #time .p, body.pride #time .c, body.pride #time .c2 {
+  display: none;
+}
+body.pride #time #timeh:after,
+body.pride #time #timem:after {
+  content: ':';
+  color: #fff;
+  position: absolute;
+  right: -0.12em;
+  bottom: 0.5em;
+  font-size: 2em;
+}
+body.pride #time #timeh:after {
+  right: -0.12em;
+}
