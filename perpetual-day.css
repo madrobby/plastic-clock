@@ -95,13 +95,13 @@ li.a:after {
   right:0.7em;
   pointer-events: none;
 }
-#sel:hover select {
+/*#sel:hover select {
   background: var(--ui-color);
   color: var(--bg-color);
 }
 #sel:hover:after {
   color: var(--bg-color);
-}
+}*/
 #noko {
   position: fixed;
   left: 2em;
@@ -799,7 +799,7 @@ body.pride li.a {
 }
 body.pride li.a:after {
   border-color: #fff;
-  border-width: 0.2rem;
+  border-width: 0.rem;
 }
 body.pride #time {
   justify-content: end;
